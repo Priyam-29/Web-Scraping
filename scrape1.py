@@ -1,3 +1,4 @@
+import json
 import time
 start = time.time()
 
@@ -20,7 +21,7 @@ courseList = []
 
 for i in range(1):
 	for j in range(1):
-		subjectURL = "https://www.coursebuffet.com/sub/computer-science"
+		subjectURL = "https://www.coursebuffet.com/sub/computer-engineering"
 
 		r = requests.get(subjectURL)
 		
@@ -85,10 +86,10 @@ for i in range(1):
 			print(course)
 			courseList.append(course)
 
-# for course in courseList:
-# 	for k in course.keys():
-		# print(k, course[k])
 print(len(courseList))
+
+with open("Courses.json", "w+") as outfile: 
+    json.dump(courseList, outfile, indent = 3) 
 
 end = time.time()
 print("Time taken = ", end - start)

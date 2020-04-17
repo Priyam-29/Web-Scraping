@@ -1,0 +1,50 @@
+[
+   {
+      "Title": "The Computing Technology Inside Your Smartphone",
+      "Description": "We use our smartphones to communicate, to organize our lives, to find information, and to entertain ourselves. All of this is possible because a smartphone contains a powerful computer processor, which is the subject of this course. This computer science course starts by moving step-by-step through the fundamental layers of computing technology, from binary numbers to application software, and then covers advanced performance techniques and the details of actual smartphone processors. Learn about: Digital logic Computer organization Instruction sets Application Software Advanced performance techniques Actual smartphone processors This Course also provides students with the technical knowledge and the Jade design tool experience to succeed in the more advanced MITx 6.004 MOOC - Computation Structures course sequence.",
+      "Instructor(s)": "Dave Albonesi",
+      "University": "Cornell",
+      "Provider": "EdX",
+      "Start Date": "13/Jun/2016",
+      "Duration": "Always Available",
+      "Main Language": "English",
+      "Classified As": "CE250 - Lower Level Computer Engineering courses (partially classified)",
+      "Subject": "Computer Engineering"
+   },
+   {
+      "Title": "Computer Systems Design for Energy Efficiency",
+      "Description": "In order to be competitive in the computer science field, it\u2019s imperative to understand the basic building blocks of a modern computer and how they directly impact the speed and efficiency of a program. Whether you work with embedded systems, mobile computer-based systems, or cloud systems, performance and energy efficiency are key drivers of usability and competitiveness of computerized products. In this course, you will learn how to design modern multicore-based computers, and how the design choices you make affect performance and energy consumption. You will explore design principles governing modern microprocessors, such as pipelining and cache memories, as well as methods for determining the impact of your design on execution time and energy efficiency. These skills can make a difference for practicing engineers for the purpose of building highly competitive products. Take, for instance, a smartphone with limited battery capacity. By adding value to end users through new or improved functionality, this can lead to significantly shorter operation time between battery charges, thus utilizing the already limited resources of a smartphone far more efficiently. With this skillset, you can become an expert in computer system performance and energy efficiency - knowledge that is in high demand when designing computerized embedded products. With trends towards IoT (Internet of Things), autonomous systems and mobile computers, such a skillset will be critical in a career in systems engineering. This course is derived from a Chalmers senior undergraduate course in computer system design. It assumes basic knowledge in computer organization.",
+      "Instructor(s)": "Per Stenstr\u00f6m",
+      "University": "Chalmers",
+      "Provider": "EdX",
+      "Start Date": "01/Nov/2016",
+      "Duration": "Always Available",
+      "Main Language": "English",
+      "Classified As": "CE350 - Upper Level Computer Engineering courses (partially classified)",
+      "Subject": "Computer Engineering"
+   },
+   {
+      "Title": "Hardware Security",
+      "Description": "In this course, we will study security and trust from the hardware perspective. Upon completing the course, students will understand the vulnerabilities in current digital system design flow and the physical attacks to these systems. They will learn that security starts from hardware design and be familiar with the tools and skills to build secure and trusted hardware.",
+      "Instructor(s)": "Gang Qu",
+      "University": "Univ. of Maryland, College Park",
+      "Provider": "Coursera",
+      "Start Date": "13/Jul/2015",
+      "Duration": "6 weeks",
+      "Main Language": "English",
+      "Classified As": "CE390 - System Security",
+      "Subject": "Computer Engineering"
+   },
+   {
+      "Title": "Fundamentals of Digital Image and Video Processing",
+      "Description": "In this class you will learn the basic principles and tools used to process images and videos, and how to apply them in solving practical problems of commercial and scientific interests.",
+      "Instructor(s)": "Aggelos Katsaggelos",
+      "University": "Northwestern Univ.",
+      "Provider": "Coursera",
+      "Start Date": "30/Mar/2015",
+      "Duration": "12 weeks",
+      "Main Language": "English",
+      "Classified As": "CE456 - Digital Image and Video Processing",
+      "Subject": "Computer Engineering"
+   }
+]
