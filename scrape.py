@@ -1,7 +1,7 @@
 import json
 import time
 import requests 
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
 
 
 def getCourse(courseURL):
@@ -16,7 +16,7 @@ def getCourse(courseURL):
 	p = description.find('p')
 	course["Description"] = p.text.strip()
 
-	detailsURL = url+"#CourseInfo"
+	detailsURL = courseURL + "#CourseInfo"
 	req = requests.get(detailsURL)
 	detailsSoup = BeautifulSoup(req.content, 'html5lib')
 
@@ -27,7 +27,6 @@ def getCourse(courseURL):
 			keys = l.find("span")
 			value = keys.next_sibling.strip() 
 			course[keys.text] = value
-
 	try:
 		classifiedAs = soup.find("a", {"class" : "coursepage-coursenumber"})
 		cAs = classifiedAs.text
@@ -60,48 +59,45 @@ def getCourse(courseURL):
 	return course
 
 
-def getCoursesURLsList(subjectURL):
-	subjectURL = "https://www.coursebuffet.com" + subjectURL
-	req = requests.get(subjectURL)
-	courseSoup = BeautifulSoup(req.content, 'html5lib')
 
-	courseList = courseSoup.find_all("span", {"class" : "resultlist-unit-coursetitle"})
-	CoursesURLsList = []
-	for span in courseList:
-		anchorTags = span.find_all("a")
-		for tag in anchorTags:
-			href = tag.get('href')
-			href = "https://www.coursebuffet.com" + href
-			CoursesURLsList.append(href)
-
-def getSubjectURLsList(areasURL):
-	req = requests.get(areasURL)
-	soup = BeautifulSoup(req.content, 'html5lib')
-	categoryList = soup.find_all("li", {"class" : "col-xs-3"})
-	subjectURLsList = []
-	for category in categoryList:
-		subjectList = category.find_all("li", {"class" : "subname"})
-		for subject in subjectList:
-			anchorTag = subject.find("a")
-			subjectURL = anchorTag.get('href')
-			subjectURLsList.append(subjectURL)
-	return subjectURLsList
+URL = "https://www.coursebuffet.com/areas"
+req = requests.get(URL)
+soup = BeautifulSoup(req.content, 'html5lib')
 
 start = time.time()
-
 courseList = []
-areasURL = "https://www.coursebuffet.com/areas"
-subjectURLsList = getSubjectURLsList(areasURL)
-for subjectURL in subjectURLsList:
-	courseURLsList = getSubjectURLsList(subjectURL)
-	for courseURL in courseURLsList:
-		course = getCourse()
-		courseList.append(course)
 
-with open("Courses.json", "a+") as outfile:
-	json.dump(courseList, outfile, indent = 5) 
+categoryList = soup.find_all("li", {"class" : "col-xs-3"})
+for category in categoryList:
+	subjectList = category.find_all("li", {"class" : "subname"})
+	for subject in subjectList:
+		anchorTag = subject.find("a")
+		subjectURL = anchorTag.get('href')
+		subjectURL = "https://www.coursebuffet.com" + subjectURL
 
-print(len(courseList)) 
+# for i in range(1):
+# 	for j in range(1):
+# 		subjectURL = "https://www.coursebuffet.com/sub/computer-engineering"
+
+		r = requests.get(subjectURL)
+		
+		courseSoup = BeautifulSoup(r.content, 'html5lib')
+		path = courseSoup.find_all("span", {"class" : "resultlist-unit-coursetitle"})
+
+		for span in path:
+			aTags = span.find_all("a")
+			for tag in aTags:
+				course = {}
+				href = tag.get('href')
+				href = "https://www.coursebuffet.com" + href
+				course = getCourse(href)
+
+				print(course)
+				courseList.append(course)
+				with open("Courses.json", "a+") as outfile: 
+				    json.dump(course, outfile, indent = 3) 
+
+print(len(courseList))
 
 end = time.time()
 print("Time taken = ", end - start)
