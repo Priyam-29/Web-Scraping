@@ -1,0 +1,13 @@
+AJAX requests are not the same as that of HTTPRequests
+They require additional information to be passed to the server with the call
+In our case it was x-requested-with aram in the header specifying the type of the request i.e. XMLHttpRequest
+
+Call looks something like this:
+        subjectURL = "https://www.coursebuffet.com/sub/computer-science"
+		s = requests.Session()
+		r = s.get(subjectURL)
+response = s.get(url='https://www.coursebuffet.com/search.js?q=&sub=15&prov=&uni=&tag=&gen_level=0%2C600&page=1',
+						 headers={
+							 'x-requested-with':'XMLHttpRequest',
+							 'Referer':'https://www.coursebuffet.com/sub/computer-science'
+						 })
